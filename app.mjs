@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 if (mode === "PRODUCTION") {
 	const accessLog = createWriteStream("./accessLog.txt", { flags: "a" });
-	app.use(morgan("combined"), { stream: accessLog });
+	app.use(morgan("combined", { stream: accessLog }));
 	app.disable("x-powered-by");
 	app.use(helmet());
 }
